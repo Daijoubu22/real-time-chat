@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import events from 'events';
+import { PORT } from 'utils';
 
 const emitter = new events.EventEmitter();
 
@@ -22,4 +23,4 @@ app.post('/new-message', (req, res) => {
   res.status(200).send();
 });
 
-export default app;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
